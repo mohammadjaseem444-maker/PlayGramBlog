@@ -1,0 +1,1 @@
+<?php require __DIR__.'/config/bootstrap.php';$e=trim($_GET['email']??'');if(filter_var($e,FILTER_VALIDATE_EMAIL)){db()->prepare("UPDATE subscribers SET status='unsubscribed' WHERE email=?")->execute([$e]);}?><h1>Unsubscribed</h1><p>Your subscription has been disabled.</p>

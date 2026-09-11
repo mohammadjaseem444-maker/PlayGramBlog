@@ -1,0 +1,1 @@
+<?php require __DIR__.'/config/bootstrap.php';verify_csrf();$e=trim($_POST['email']??'');if(!filter_var($e,FILTER_VALIDATE_EMAIL))exit('Invalid email');$st=db()->prepare("INSERT INTO subscribers(email,status) VALUES(?,'active') ON DUPLICATE KEY UPDATE status='active'");$st->execute([$e]);flash('success','You are subscribed.');redirect('index.php');
